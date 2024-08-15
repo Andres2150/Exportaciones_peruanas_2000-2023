@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Datos de ejemplo
+x = np.array([2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023])
+y = np.array([6954.9,7025.7,7713.9,9090.7,12809.0,17367.7,23863.5,28217.8,30825.5,27327.3,35993.1,46849.3,45906.5,42575.9,38612.4,33544.5,36516.0,43453.8,48018.8,46444.0,39599.5,59647.5,62910.8,60755.6])
+
+# Ajuste de la línea de tendencia (regresión lineal)
+coef = np.polyfit(x, y, 5)
+trend = np.poly1d(coef)
+
+# Graficar los datos y la línea de tendencia
+plt.scatter(x, y, label='Exportaciones peruanas')
+plt.plot(x, trend(x), label='Línea de tendencia', color='red')
+
+# Personalización del gráfico
+plt.xlabel('Eje X')
+plt.ylabel('Eje Y')
+plt.title('Evolución de exportaciones peruanas 2000-2023')
+plt.legend()
+plt.grid(True)
+
+# Mostrar gráfico
+plt.show()
